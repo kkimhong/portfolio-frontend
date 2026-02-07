@@ -2,9 +2,9 @@
 import { Spinner } from "@/components/ui/spinner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
-import React, { ProviderProps, useEffect, useState } from "react";
+import React, { useState } from "react";
 
-export default function Providers({ children }: ProviderProps<unknown>) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
