@@ -1,13 +1,11 @@
 import { RiLoaderLine } from "@remixicon/react";
-import { cn } from "@/lib/utils"; // Assuming you have this utility
+import { cn } from "@/lib/utils";
 import React from "react";
 
-// Destructure 'children' to separate it from 'props'
-function Spinner({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<"svg">) {
+// Omit 'children' from the interface so TypeScript knows it's not allowed
+type SpinnerProps = Omit<React.ComponentProps<"svg">, "children">;
+
+export function Spinner({ className, ...props }: SpinnerProps) {
   return (
     <RiLoaderLine
       role="status"
@@ -17,5 +15,3 @@ function Spinner({
     />
   );
 }
-
-export { Spinner };
