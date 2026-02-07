@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import React, { ProviderProps, useEffect, useState } from "react";
 
-export default function Providers({ children }: ProviderProps) {
+export default function Providers({ children }: ProviderProps<unknown>) {
   const [queryClient] = useState(() => new QueryClient());
 
   return (
