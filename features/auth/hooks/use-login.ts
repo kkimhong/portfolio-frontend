@@ -11,7 +11,7 @@ export const useLogin = () => {
     onSuccess: () => {
       router.push("/admin");
     },
-    onError: (error: unknown) => {
+    onError: (error: any) => {
       console.error("Login failed", error.response?.data?.message);
     },
   });
