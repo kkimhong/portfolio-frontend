@@ -31,7 +31,7 @@ export const data: Project[] = [
     description: "Hotel booking management",
     content: "Handles reservations, payments, and reports.",
     tags: "Java, Selenium, TestNG",
-    isPublished: true,
+    isPublished: false,
   },
   {
     id: "5",
