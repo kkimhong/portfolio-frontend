@@ -23,7 +23,7 @@ export const data: Project[] = [
     description: "Track daily expenses",
     content: "Includes charts, categories, and monthly summaries.",
     tags: "Vue, Express, MySQL",
-    isPublished: true,
+    isPublished: false,
   },
   {
     id: "4",
