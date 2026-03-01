@@ -1,5 +1,12 @@
 "use client";
-import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
+import {
+  Table,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableBody,
+  TableCell,
+} from "@/components/ui/table";
 import {
   ColumnDef,
   flexRender,
@@ -11,7 +18,7 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-
+const coreRowModel = getCoreRowModel();
 export function ProjectTable<TData, TValue>({
   columns,
   data,
@@ -19,7 +26,7 @@ export function ProjectTable<TData, TValue>({
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: getCoreRowModel(),
+    getCoreRowModel: coreRowModel,
   });
 
   return (
