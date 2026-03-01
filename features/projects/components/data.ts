@@ -33,4 +33,20 @@ export const data: Project[] = [
     tags: "Java, Selenium, TestNG",
     isPublished: true,
   },
+  {
+    id: "5",
+    title: "Home Service Provider",
+    description: "Mobile app with admin portal",
+    content: "Connects customers with local service providers. Includes booking, real-time tracking, ratings, and an admin dashboard for managing providers and services.",
+    tags: "React Native, Node.js, PostgreSQL, Prisma",
+    isPublished: true,
+  },
+  {
+    id: "6",
+    title: "Personal Portfolio",
+    description: "This portfolio website",
+    content: "A modern, animated portfolio with dark mode, glassmorphism cards, project showcase with pagination, and a contact section.",
+    tags: "Next.js, Tailwind CSS, Shadcn, TypeScript",
+    isPublished: true,
+  },
 ];
