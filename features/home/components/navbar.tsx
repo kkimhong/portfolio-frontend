@@ -2,12 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  RiMoonLine,
   RiSunLine,
   RiTerminalBoxLine,
   RiUserLine,
   RiFolderLine,
   RiMailSendLine,
+  RiMoonClearLine,
 } from "@remixicon/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -26,8 +26,16 @@ export function Navbar() {
 
   const navLinks = [
     { label: "About", href: "#about", icon: <RiUserLine className="size-4" /> },
-    { label: "Projects", href: "#projects", icon: <RiFolderLine className="size-4" /> },
-    { label: "Contact", href: "#contact", icon: <RiMailSendLine className="size-4" /> },
+    {
+      label: "Projects",
+      href: "#projects",
+      icon: <RiFolderLine className="size-4" />,
+    },
+    {
+      label: "Contact",
+      href: "#contact",
+      icon: <RiMailSendLine className="size-4" />,
+    },
   ];
 
   return (
@@ -75,7 +83,7 @@ export function Navbar() {
           {mounted && theme === "dark" ? (
             <RiSunLine className="size-5" />
           ) : (
-            <RiMoonLine className="size-5" />
+            <RiMoonClearLine className="size-5" />
           )}
         </Button>
       </div>
