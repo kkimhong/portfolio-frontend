@@ -23,7 +23,7 @@ export const data: Project[] = [
     description: "Track daily expenses",
     content: "Includes charts, categories, and monthly summaries.",
     tags: "Vue, Express, MySQL",
-    isPublished: true,
+    isPublished: false,
   },
   {
     id: "4",
@@ -31,7 +31,7 @@ export const data: Project[] = [
     description: "Hotel booking management",
     content: "Handles reservations, payments, and reports.",
     tags: "Java, Selenium, TestNG",
-    isPublished: true,
+    isPublished: false,
   },
   {
     id: "5",
