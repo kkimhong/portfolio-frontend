@@ -3,7 +3,10 @@ import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-sans'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +30,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
       <body
-        className={`${jetbrainsMono.variable} ${jetbrainsMono.variable} antialiased`}>
+        className={`${jetbrainsMono.variable} ${jetbrainsMono.variable} antialiased`}
+        suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>

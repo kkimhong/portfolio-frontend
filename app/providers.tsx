@@ -14,7 +14,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         attribute="class"
         defaultTheme="system"
         enableSystem
-        storageKey="theme">
+        storageKey="theme"
+        disableTransitionOnChange>
         {children}
       </ThemeProvider>
     </QueryClientProvider>

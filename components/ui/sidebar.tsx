@@ -505,9 +505,9 @@ function SidebarMenuButton({
 } & VariantProps<typeof sidebarMenuButtonVariants>) {
   const Comp = asChild ? Slot.Root : "button"
   const { isMobile, state } = useSidebar()
-
   const button = (
     <Comp
+      suppressHydrationWarning
       data-slot="sidebar-menu-button"
       data-sidebar="menu-button"
       data-size={size}
@@ -515,7 +515,7 @@ function SidebarMenuButton({
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props}
     />
-  )
+  );
 
   if (!tooltip) {
     return button

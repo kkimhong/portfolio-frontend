@@ -18,15 +18,15 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-const coreRowModel = getCoreRowModel();
 export function ProjectTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,
-    getCoreRowModel: coreRowModel,
+    getCoreRowModel: getCoreRowModel(),
   });
 
   return (

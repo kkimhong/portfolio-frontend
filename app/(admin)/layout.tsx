@@ -18,7 +18,7 @@ import {
 import { RiMoonClearLine, RiSunLine } from "@remixicon/react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function SidebarLayout({
   children,
@@ -27,9 +27,13 @@ export default function SidebarLayout({
 }) {
   const pathname = usePathname();
   const pathSegments = pathname.split("/").filter((segment) => segment !== "");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const { theme, setTheme } = useTheme();
-  const mounted = useRef(false);
-  useEffect(() => { mounted.current = true; }, []);
+  
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -77,7 +81,7 @@ export default function SidebarLayout({
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300">
-              {mounted.current && theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <RiSunLine className="size-5" />
               ) : (
                 <RiMoonClearLine className="size-5" />
