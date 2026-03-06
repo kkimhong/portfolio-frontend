@@ -6,11 +6,6 @@ import {
   RiPieChartLine,
   RiCodepenLine,
   RiTerminalBoxLine,
-  RiCommandLine,
-  RiSoundcloudLine,
-  RiBookOpenLine,
-  RiEqualizerLine,
-  RiRobot2Line,
   RiArtboard2Line,
   RiMap2Line,
 } from "@remixicon/react";
@@ -29,25 +24,15 @@ import { NavUser } from "./nav-user";
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "Kruyk",
+    email: "hello@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Portfolio",
       logo: RiCodepenLine,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: RiSoundcloudLine,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: RiCommandLine,
-      plan: "Free",
+      plan: "Personal",
     },
   ],
   navMain: [
@@ -62,8 +47,12 @@ const data = {
           url: "/admin/projects",
         },
         {
-          title: "Starred",
-          url: "#",
+          title: "Tech Stack",
+          url: "/admin/tech-stack",
+        },
+        {
+          title: "About",
+          url: "/admin/about",
         },
         {
           title: "Settings",

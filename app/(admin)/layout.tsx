@@ -8,14 +8,17 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { RiMoonClearLine, RiSunLine } from "@remixicon/react";
+import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function SidebarLayout({
   children,
@@ -24,11 +27,14 @@ export default function SidebarLayout({
 }) {
   const pathname = usePathname();
   const pathSegments = pathname.split("/").filter((segment) => segment !== "");
+  const { theme, setTheme } = useTheme();
+  const mounted = useRef(false);
+  useEffect(() => { mounted.current = true; }, []);
   return (
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+        <header className="flex h-16 shrink-0 items-center justify-between border-b transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2" />
@@ -64,6 +70,19 @@ export default function SidebarLayout({
                 })}
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+          <div className="px-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300">
+              {mounted.current && theme === "dark" ? (
+                <RiSunLine className="size-5" />
+              ) : (
+                <RiMoonClearLine className="size-5" />
+              )}
+            </Button>
           </div>
         </header>
         <div className="m-4">{children}</div>

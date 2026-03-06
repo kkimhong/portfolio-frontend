@@ -10,15 +10,15 @@ import {
   RiMoonClearLine,
 } from "@remixicon/react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mounted = useRef(false);
 
   useEffect(() => {
-    setMounted(true);
+    mounted.current = true;
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

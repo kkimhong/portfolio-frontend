@@ -99,7 +99,7 @@ export function HeroSection() {
         </form>
 
         {/* CTA Buttons */}
-        <div className="animate-fade-in-up animation-delay-300 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="animate-fade-in-up animation-delay-300 flex items-center justify-center gap-4 sm:flex-row">
           <Button
             size="lg"
             className="group rounded-xl bg-primary px-8 text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02]"

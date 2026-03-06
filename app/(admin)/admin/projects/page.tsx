@@ -1,17 +1,21 @@
 import React from "react";
 import { NewProjectDrawer } from "@/features/projects/components/new-project";
-import { ProjectTable } from "@/features/projects/components/project-table";
-import { columns } from "@/features/projects/components/columns";
+import { ProjectCardGrid } from "@/features/projects/components/project-card-grid";
 import { data } from "@/features/projects/components/data";
 
 const ProjectPage = () => {
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col space-y-6">
       <div className="flex items-center justify-between w-full">
-        <h1 className="text-lg font-bold">Projects</h1>
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Projects</h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Manage and organize your portfolio projects.
+          </p>
+        </div>
         <NewProjectDrawer />
       </div>
-      <ProjectTable columns={columns} data={data}/>
+      <ProjectCardGrid data={data} />
     </div>
   );
 };
