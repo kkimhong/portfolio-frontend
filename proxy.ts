@@ -1,8 +1,8 @@
-// import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-// export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 //   const pathname = request.url;
-//   //Checking if user still of their token
+  //Checking if user still of their token
 //   const token = request.cookies.get("jwt")?.value;
 
 //   //Checking if user try to go to /dashboard without token and redirectuser to /login
@@ -14,6 +14,6 @@
 //     return NextResponse.redirect(new URL("/admin", request.url));
 //   }
 
-//   //continue if the user is authenticated or un-protected route
-//   return NextResponse.next();
-// }
+  //continue if the user is authenticated or un-protected route
+  return NextResponse.next();
+}
