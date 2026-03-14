@@ -50,14 +50,14 @@ export function HeroSection() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           </span>
-          Available for work
+          Vibe coded web
         </div>
 
         {/* Name */}
         <h1 className="animate-fade-in-up animation-delay-100 mb-6 text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl">
           <span className="block text-foreground">Hi, I&apos;m</span>
           <span className="animate-gradient-text bg-gradient-to-r from-primary via-chart-2 to-chart-3 bg-[length:200%_auto] bg-clip-text text-transparent">
-            K.Kimhong
+            Hello World
           </span>
         </h1>
 
@@ -99,7 +99,7 @@ export function HeroSection() {
         </form>
 
         {/* CTA Buttons */}
-        <div className="animate-fade-in-up animation-delay-300 flex items-center justify-center gap-4 sm:flex-row">
+        <div className="animate-fade-in-up animation-delay-300 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             size="lg"
             className="group rounded-xl bg-primary px-8 text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02]"
