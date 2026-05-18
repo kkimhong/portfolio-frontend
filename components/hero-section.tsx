@@ -6,7 +6,7 @@ import {
   RiTiktokFill,
   RiTwitterXFill,
 } from "@remixicon/react";
-import profileImg from "../assets/img/morty_profile.png";
+import Image from "next/image";
 const socialLinks = [
   {
     name: "Facebook",
@@ -39,10 +39,13 @@ export function HeroSection() {
     <div>
       <section className="relative flex min-h-screen items-center justify-center">
         <div className="text-center space-y-6">
-          <div className="mx-auto flex h-40 w-40 items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 backdrop-blur-md shadow-xl">
-            <img
-              src={profileImg.src}
+          <div className="mx-auto flex h-40 w-40 items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 shadow-xl backdrop-blur-md">
+            <Image
+              src="/images/morty_profile.png"
               alt="Profile"
+              width={144}
+              height={144}
+              priority
               className="h-36 w-36 rounded-full object-cover"
             />
           </div>
