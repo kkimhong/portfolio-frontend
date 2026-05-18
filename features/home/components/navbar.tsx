@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import {
   RiSunLine,
   RiTerminalBoxLine,
@@ -25,17 +26,20 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "About", href: "#about", icon: <RiUserLine className="size-4" /> },
+    {
+      label: "Where to find me",
+      href: "#about", // icon: <RiUserLine className="size-4" />
+    },
     {
       label: "Projects",
       href: "#projects",
-      icon: <RiFolderLine className="size-4" />,
+      // icon: <RiFolderLine className="size-4" />,
     },
-    {
-      label: "Contact",
-      href: "#contact",
-      icon: <RiMailSendLine className="size-4" />,
-    },
+    // {
+    //   label: "Contact",
+    //   href: "#contact",
+    //   // icon: <RiMailSendLine className="size-4" />,
+    // },
   ];
 
   return (
@@ -50,32 +54,46 @@ export function Navbar() {
         <a
           href="#"
           className="group flex items-center gap-2 text-lg font-bold tracking-tight">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+          {/* <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
             <RiTerminalBoxLine className="size-4" />
-          </span>
-          <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            kruyk
+          </span> */}
+          <span className="text-white bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            k.kimhong
           </span>
           <span className="text-primary">.</span>
         </a>
 
         {/* Nav links */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="group flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-300 hover:bg-primary/5 hover:text-foreground">
-              <span className="transition-colors duration-300 group-hover:text-primary">
-                {link.icon}
-              </span>
+              className="
+    group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
+    transition-colors duration-300
+    after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
+    after:origin-left after:scale-x-0 after:bg-current
+    after:transition-transform after:duration-300
+    hover:after:scale-x-100
+  ">
               {link.label}
             </a>
           ))}
+          <Separator orientation="vertical" className="mx-4 h-6 my-4" />
+          <a
+          href="#sign-in"
+            className="
+    group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
+    transition-colors duration-300
+    after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
+    after:origin-left after:scale-x-0 after:bg-current
+    after:transition-transform after:duration-300
+    hover:after:scale-x-100
+  ">Sign In</a>
         </div>
-
         {/* Theme toggle */}
-        <Button
+        {/* <Button
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -85,7 +103,7 @@ export function Navbar() {
           ) : (
             <RiMoonClearLine className="size-5" />
           )}
-        </Button>
+        </Button> */}
       </div>
     </nav>
   );

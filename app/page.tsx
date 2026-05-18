@@ -1,17 +1,14 @@
+
+import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/features/home/components/navbar";
-import { HeroSection } from "@/features/home/components/hero-section";
-import { AboutSection } from "@/features/home/components/about-section";
-import { ProjectsSection } from "@/features/home/components/projects-section";
-import { ContactFooter } from "@/features/home/components/contact-footer";
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
+    <div className="min-h-screen bg-[url('../assets/img/hero_section.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="min-h-screen bg-black/50 flex flex-col items-center justify-center">
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactFooter />
-    </main>
+      </div>
+    </div>
   );
 }
