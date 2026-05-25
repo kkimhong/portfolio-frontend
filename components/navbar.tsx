@@ -82,7 +82,7 @@ export function Navbar() {
           ))}
           <Separator orientation="vertical" className="mx-4 h-6 my-4" />
           <a
-          href="#sign-in"
+            href="#sign-in"
             className="
     group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
     transition-colors duration-300
@@ -90,7 +90,9 @@ export function Navbar() {
     after:origin-left after:scale-x-0 after:bg-current
     after:transition-transform after:duration-300
     hover:after:scale-x-100
-  ">Sign In</a>
+  ">
+            Sign In
+          </a>
         </div>
         {/* Theme toggle */}
         {/* <Button
