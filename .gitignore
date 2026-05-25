@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# add this to .gitignore
+public/videos/
+public/images/
+*.mp4
+*.mov
+*.avi
