@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
-import Image from "next/image";
 export default function HomePage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
