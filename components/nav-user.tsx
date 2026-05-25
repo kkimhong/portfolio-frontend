@@ -16,7 +16,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { useLogout } from "@/features/auth/hooks/use-logout";
 import {
   RiBankCardLine,
   RiExpandVerticalLine,
@@ -36,7 +35,6 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
-  const { mutate: logout, isPending } = useLogout();
 
   return (
     <SidebarMenu>
@@ -97,10 +95,10 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onSelect={() => logout()} disabled={isPending}>
+            {/* <DropdownMenuItem onSelect={() => logout()} disabled={isPending}>
               <RiLogoutBoxLine />
               {isPending ? "Logging out..." : "Logout"}
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>
