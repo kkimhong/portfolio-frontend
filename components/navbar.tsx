@@ -38,7 +38,7 @@ export function Navbar() {
         <a
           href="#"
           className="group flex items-center gap-2 text-lg font-bold tracking-tight">
-          <span className="bg-linear-to-r from-foreground to-foreground/90 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-white">
             k.kimhong
           </span>
           <span className="text-white">.</span>
@@ -82,7 +82,7 @@ export function Navbar() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="
-            flex size-10 items-center justify-center md:hidden
+            flex size-10 text-white items-center justify-center md:hidden
           "
           aria-label="Toggle menu">
           {mobileOpen ? (

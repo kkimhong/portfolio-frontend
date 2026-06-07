@@ -52,7 +52,7 @@ export function HeroSection() {
           <h1 className="text-4xl font-bold text-white bg-linear-to-r from-foreground to-foreground/70 bg-clip-text md:text-7xl">
             Kimhong Kruy
           </h1>
-          <p className=" text-2xl text-white/80">I love playing video games.</p>
+          <p className=" text-2xl text-white/80 px-4">I love playing video games.</p>
           <div className="flex items-center justify-center mx-auto gap-2 text-white/70">
             <RiMapPinLine className="size-4 animate-bounce" />
             <h1>Mean Chey, Phnom Penh</h1>
