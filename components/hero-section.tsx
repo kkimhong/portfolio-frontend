@@ -49,7 +49,7 @@ export function HeroSection() {
               className="h-36 w-36 rounded-full object-cover"
             />
           </div>
-          <h1 className="text-7xl font-bold text-white bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold text-white bg-linear-to-r from-foreground to-foreground/70 bg-clip-text md:text-7xl">
             Kimhong Kruy
           </h1>
           <p className=" text-2xl text-white/80">I love playing video games.</p>
@@ -65,14 +65,21 @@ export function HeroSection() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={link.name}
+                    title={link.name}
                     className="
-                flex items-center gap-2 rounded-full border border-white/20
-                bg-white/10 px-4 py-2 text-sm font-medium text-white/80
-                backdrop-blur-md transition-all duration-300
-                hover:-translate-y-1 hover:bg-white/20 hover:text-white
-              ">
+            flex h-11 w-11 items-center justify-center rounded-full
+            border border-white/20 bg-white/10 text-white/80
+            backdrop-blur-md transition-all duration-300
+            hover:-translate-y-1 hover:bg-white/20 hover:text-white
+
+            sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2
+          ">
                     {link.icon}
-                    {link.name}
+
+                    <span className="hidden sm:inline text-sm font-medium">
+                      {link.name}
+                    </span>
                   </a>
                 </li>
               ))}

@@ -1,111 +1,134 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  RiSunLine,
-  RiTerminalBoxLine,
-  RiUserLine,
-  RiFolderLine,
-  RiMailSendLine,
-  RiMoonClearLine,
-} from "@remixicon/react";
-import { useTheme } from "next-themes";
-import { useEffect, useRef, useState } from "react";
+import { RiCloseLine, RiMenuLine } from "@remixicon/react";
+import { useEffect, useState } from "react";
 
 export function Navbar() {
-  const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
-  const mounted = useRef(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    mounted.current = true;
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navLinks = [
     {
-      label: "Where to find me",
-      href: "#about", // icon: <RiUserLine className="size-4" />
+      label: "Blogs",
+      href: "#blogs",
     },
     {
       label: "Projects",
       href: "#projects",
-      // icon: <RiFolderLine className="size-4" />,
     },
-    // {
-    //   label: "Contact",
-    //   href: "#contact",
-    //   // icon: <RiMailSendLine className="size-4" />,
-    // },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/60 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-primary/5"
+          ? "border-b border-border/50 bg-background/60 shadow-lg shadow-primary/5 backdrop-blur-2xl"
           : "bg-transparent"
       }`}>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a
           href="#"
           className="group flex items-center gap-2 text-lg font-bold tracking-tight">
-          {/* <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
-            <RiTerminalBoxLine className="size-4" />
-          </span> */}
-          <span className="text-white bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-foreground to-foreground/90 bg-clip-text text-transparent">
             k.kimhong
           </span>
-          <span className="text-primary">.</span>
+          <span className="text-white">.</span>
         </a>
 
-        {/* Nav links */}
+        {/* Desktop Nav Links */}
         <div className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="
-    group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
-    transition-colors duration-300
-    after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
-    after:origin-left after:scale-x-0 after:bg-current
-    after:transition-transform after:duration-300
-    hover:after:scale-x-100
-  ">
+                group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
+                transition-colors duration-300
+                after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
+                after:origin-left after:scale-x-0 after:bg-current
+                after:transition-transform after:duration-300
+                hover:after:scale-x-100
+              ">
               {link.label}
             </a>
           ))}
-          <Separator orientation="vertical" className="mx-4 h-6 my-4" />
+
+          <Separator orientation="vertical" className="mx-4 my-4 h-6" />
+
           <a
             href="#sign-in"
             className="
-    group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
-    transition-colors duration-300
-    after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
-    after:origin-left after:scale-x-0 after:bg-current
-    after:transition-transform after:duration-300
-    hover:after:scale-x-100
-  ">
+              group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
+              transition-colors duration-300
+              after:absolute after:bottom-0 after:left-0 after:h-[4px] after:w-full
+              after:origin-left after:scale-x-0 after:bg-current
+              after:transition-transform after:duration-300
+              hover:after:scale-x-100
+            ">
             Sign In
           </a>
         </div>
-        {/* Theme toggle */}
-        {/* <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="rounded-xl hover:bg-primary/10 hover:text-primary transition-all duration-300">
-          {mounted && theme === "dark" ? (
-            <RiSunLine className="size-5" />
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="
+            flex size-10 items-center justify-center md:hidden
+          "
+          aria-label="Toggle menu">
+          {mobileOpen ? (
+            <RiCloseLine className="size-5" />
           ) : (
-            <RiMoonClearLine className="size-5" />
+            <RiMenuLine className="size-5" />
           )}
-        </Button> */}
+        </button>
+
+        {/* Mobile Dropdown */}
+        {mobileOpen && (
+          <div
+            className="
+              absolute left-6 right-6 top-full mt-3
+              border border-white/20 bg-white/10 text-white/80
+            backdrop-blur-md p-4
+              shadow-lg md:hidden
+            ">
+            <div className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="
+                   px-4 py-3 text-sm font-medium text-white
+                    transition-colors hover:bg-white/10
+                  ">
+                  {link.label}
+                </a>
+              ))}
+
+              <div className="my-2 h-px bg-white/20" />
+
+              <a
+                href="#sign-in"
+                onClick={() => setMobileOpen(false)}
+                className="
+                   px-4 py-3 text-sm font-medium text-white
+                  transition-colors hover:bg-white/10
+                ">
+                Sign In
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
