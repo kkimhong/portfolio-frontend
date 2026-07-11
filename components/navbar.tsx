@@ -2,6 +2,7 @@
 
 import { Separator } from "@/components/ui/separator";
 import { RiCloseLine, RiMenuLine } from "@remixicon/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function Navbar() {
@@ -18,36 +19,32 @@ export function Navbar() {
   const navLinks = [
     {
       label: "Blogs",
-      href: "#blogs",
+      href: "/blogs",
     },
     {
       label: "Projects",
-      href: "#projects",
+      href: "/projects",
     },
   ];
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border/50 bg-background/60 shadow-lg shadow-primary/5 backdrop-blur-2xl"
-          : "bg-transparent"
-      }`}>
+      className="fixed left-0 right-0 top-0 z-50 transition-all duration-500
+      ">
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="group flex items-center gap-2 text-lg font-bold tracking-tight">
           <span className="bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-white">
             k.kimhong
           </span>
           <span className="text-white">.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden items-center gap-4 md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="
@@ -59,12 +56,12 @@ export function Navbar() {
                 hover:after:scale-x-100
               ">
               {link.label}
-            </a>
+            </Link>
           ))}
 
           <Separator orientation="vertical" className="mx-4 my-4 h-6" />
 
-          <a
+          <Link
             href="#sign-in"
             className="
               group relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-white
@@ -75,7 +72,7 @@ export function Navbar() {
               hover:after:scale-x-100
             ">
             Sign In
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -103,7 +100,7 @@ export function Navbar() {
             ">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
@@ -112,12 +109,12 @@ export function Navbar() {
                     transition-colors hover:bg-white/10
                   ">
                   {link.label}
-                </a>
+                </Link>
               ))}
 
               <div className="my-2 h-px bg-white/20" />
 
-              <a
+              <Link
                 href="#sign-in"
                 onClick={() => setMobileOpen(false)}
                 className="
@@ -125,7 +122,7 @@ export function Navbar() {
                   transition-colors hover:bg-white/10
                 ">
                 Sign In
-              </a>
+              </Link>
             </div>
           </div>
         )}

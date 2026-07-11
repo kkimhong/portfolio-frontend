@@ -25,8 +25,8 @@ import { NavUser } from "./nav-user";
 const data = {
   user: {
     name: "Kruyk",
-    email: "hello@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    email: "static@example.com",
+    avatar: "../public/images/morty_profile.png",
   },
   teams: [
     {
@@ -43,16 +43,16 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Project",
+          title: "Blogs",
+          url: "/admin/blogs",
+        },
+        {
+          title: "Projects",
           url: "/admin/projects",
         },
         {
-          title: "Tech Stack",
-          url: "/admin/tech-stack",
-        },
-        {
-          title: "About",
-          url: "/admin/about",
+          title: "Technologies",
+          url: "/admin/technologies",
         },
         {
           title: "Settings",
