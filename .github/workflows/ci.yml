@@ -14,28 +14,23 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 10 # Matches your local pnpm version
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: npm
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Lint Check
-        run: pnpm lint
+        run: npm run lint
 
       - name: Type Check
-        run: pnpm exec tsc --noEmit # Ensures TypeScript has no errors
+        run: npx tsc --noEmit # Ensures TypeScript has no errors
 
       - name: Build Project
-        run: pnpm build
+        run: npm run build
         env:
           # Add dummy env vars if your build requires them
           NEXT_PUBLIC_API_URL: https://api.example.com
