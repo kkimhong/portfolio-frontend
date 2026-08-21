@@ -43,13 +43,13 @@ export default function RootLayout({
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover">
+            className="fixed inset-0 h-screen w-screen object-cover">
             <source
               src="https://pub-83945fce687543fd923c16ac5b4f8a9b.r2.dev/output.mp4"
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="fixed inset-0 bg-black/40" />
           <div className="relative z-10 flex min-h-screen flex-col">
             <Navbar />
             <Providers>{children}</Providers>

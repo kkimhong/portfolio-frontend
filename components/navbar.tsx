@@ -29,8 +29,11 @@ export function Navbar() {
 
   return (
     <nav
-      className="fixed left-0 right-0 top-0 z-50 transition-all duration-500
-      ">
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/15 bg-black/55 shadow-lg backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}>
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
